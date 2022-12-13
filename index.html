@@ -141,6 +141,13 @@ ul {
 	</div>
 </div>
 <script>
+      let currentCity = document.querySelector(".current");
+let searchForm = document.querySelector(".searcher");
+function updateCity(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#city");
+  currentCity.innerHTML = searchInput.value;
+}searchForm.addEventListener("submit", updateCity);
   let now = new Date();
 console.log(now);
 let hour = now.getHours();
