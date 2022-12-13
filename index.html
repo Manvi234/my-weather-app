@@ -176,7 +176,14 @@ function showTemp(response) {
   tempElement.innerHTML = `${Ftemp}`;
   currentCity.innerHTML = response.data.name;
 }
-
+function searchTemp() {
+  let searchCity = document.querySelector("#city");
+  let citySearch = searchCity.value;
+  let apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${citySearch}&units=metric`;
+  let apiKey = `001bc651977f4b024af4d84282b0f02a`;
+  axios.get(`${apiurl}&appid=${apiKey}`).then(showTemp);
+}
+searchForm.addEventListener("submit", searchTemp);
 </script>
   </body>
 </html>
