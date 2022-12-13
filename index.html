@@ -184,6 +184,21 @@ function searchTemp() {
   axios.get(`${apiurl}&appid=${apiKey}`).then(showTemp);
 }
 searchForm.addEventListener("submit", searchTemp);
+function showCurrentLocation(position) {
+  let apiKey = `001bc651977f4b024af4d84282b0f02a`;
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemp);
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(showCurrentLocation);
+}
+
+let currentLocationButton = document.querySelector("#current_button");
+currentLocationButton.addEventListener("click", getCurrentLocation);
 </script>
   </body>
 </html>
