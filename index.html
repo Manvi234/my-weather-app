@@ -140,5 +140,29 @@ ul {
     </div>
 	</div>
 </div>
+<script>
+  let now = new Date();
+console.log(now);
+let hour = now.getHours();
+let min = now.getMinutes();
+let time = document.querySelector("#time");
+console.log(time);
+if (min < 10) {
+  min = `0${min}`;
+}
+let currentDay = document.querySelector("#day");
+time.innerHTML = "   " + hour + ":" + min;
+let days = now.getDay();
+let day = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+currentDay.innerHTML = day[days];
+</script>
   </body>
 </html>
