@@ -170,6 +170,13 @@ let day = [
   "Saturday",
 ];
 currentDay.innerHTML = day[days];
+function showTemp(response) {
+  let tempElement = document.querySelector(".temp");
+  let Ftemp = Math.round(response.data.main.temp);
+  tempElement.innerHTML = `${Ftemp}`;
+  currentCity.innerHTML = response.data.name;
+}
+
 </script>
   </body>
 </html>
